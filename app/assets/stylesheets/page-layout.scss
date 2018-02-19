@@ -1,0 +1,39 @@
+body {
+  position: relative;
+}
+
+.main-content {
+  padding-left: 100px;
+}
+
+.sidebar {
+  position: fixed;
+  background: #333333;
+  height: 100%;
+  width: 100px;
+
+  .menu-item {
+    display: block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: #fff;
+
+    &:hover, &:focus {
+      background: #eee;
+      color: #1779ba;
+
+      .menu-label {
+        color: #1779ba;
+      }
+    }
+  }
+
+  .menu-label {
+    color: #fff;
+    white-space: normal;
+  }
+}
+
+.top-adjust {
+  padding-top: 30px;
+}

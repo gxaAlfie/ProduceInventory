@@ -1,0 +1,22 @@
+.produce-item {
+  border: 2px solid #eee;
+  margin: 10px;
+  margin-top: 0px;
+  margin-left: 0px;
+  height: 250px !important;
+  max-width: 210px;
+  border-radius: 5px;
+
+  img {
+    border-bottom: 1px solid #eee;
+  }
+
+  &:hover, &:focus {
+    box-shadow: 5px 5px 5px #000;
+    border: 0px;
+    border: 2px solid #eee;
+    border-bottom: none;
+    border-right: none;
+    color: #000;
+  }
+}

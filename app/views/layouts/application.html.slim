@@ -1,0 +1,25 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    title == content_for?(:title) ? yield(:title) : "Untitled"
+
+    = stylesheet_link_tag "application"
+    = csrf_meta_tag
+    = javascript_include_tag "application"
+    = javascript_pack_tag "application"
+  body
+    ul.vertical.menu.sidebar.top-adjust.no-bullet
+      li class=("is-active" if current_page?(root_path))
+        a.menu-item.text-center
+          i.material-icons = "home"
+          label.menu-label = "Home"
+      li
+        a.menu-item.text-center
+          i.material-icons = "account_balance"
+          label.menu-label = "Balance"
+    .main-content.grid-container.top-adjust
+      = yield
+

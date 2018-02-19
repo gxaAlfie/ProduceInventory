@@ -1,0 +1,14 @@
+.produce-container {
+  overflow: auto;
+  max-height: 300px;
+}
+
+.produce-container::-webkit-scrollbar {
+  display: block;
+  width: 5px;
+  background-color: #aaa;
+}
+
+.produce-container::-webkit-scrollbar-thumb {
+  background-color: #000;
+}
