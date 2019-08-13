@@ -6,6 +6,7 @@ class CreateProduces < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :measurement_unit
       t.string :avatar
+      t.string :banner
 
       t.timestamps
     end

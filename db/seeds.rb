@@ -6,5 +6,6 @@ produce_list = produce_names.map do |produce_name|
     produce.price    = 50
     produce.measurement_unit = "kg"
     produce.avatar = File.open(File.join(Rails.root, "app/assets/images/vegetables.jpg"))
+    produce.banner = File.open(File.join(Rails.root, "app/assets/images/no-banner.png"))
   end
 end

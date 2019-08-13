@@ -7,21 +7,41 @@ class ProduceList extends Component {
     this.state = $.extend({}, this.props)
   }
 
+  toggleCheckbox(event){
+    if(this.props.displayBatchActions){
+      event.preventDefault()
+      let matchingCheckbox = $(event.target).parents(".produce-item").find("input[type='checkbox']")
+      this.props.handleBatchCheckboxChange(matchingCheckbox.data("itemId"))
+    }
+  }
+
+  renderBatchActionCheckbox(itemId){
+    if(this.props.displayBatchActions){
+      return(
+        <div className="float-right produce-item-checkbox">
+          <input type="checkbox" data-item-id={itemId}/>
+        </div>
+      )
+    }
+  }
+
   renderProduceItems(){
     let produceItems = this.props.produce.map((item, index) => {
+      let isChecked = this.props.displayBatchActions && this.props.checkedItems.includes(item.id)
       return(
-        <a href={`/produce/${item.id}`} key={index} className="produce-item card">
-          <ProduceItem item={item}/>
-        </a>
+        <div key={index} className={`produce-item card ${isChecked ? "checked" : "" }`}>
+          <a onClick={this.toggleCheckbox.bind(this)} href={`/produce/${item.id}`} className="produce-item-link">
+            <ProduceItem item={item}/>
+          </a>
+          {this.renderBatchActionCheckbox(item.id)}
+        </div>
       )
     })
     if(produceItems.length){
       return produceItems
     } else {
       return(
-        <span>
-          No Items Found
-        </span>
+        <span>No Items Found</span>
       )
     }
   }

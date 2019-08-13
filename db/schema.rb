@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180208013730) do
     t.string "name"
     t.string "measurement_unit"
     t.string "avatar"
+    t.string "banner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

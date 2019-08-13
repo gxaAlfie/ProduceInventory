@@ -6,10 +6,25 @@ class Search extends Component {
     this.state = $.extend({}, this.props)
   }
 
-  filterProduce(){
+  filterProduce(event){
+    event.preventDefault()
     let searchValue = $.trim($("#search").val()).toLowerCase()
+    $.ajax({
+      url: "/search",
+      method: "POST",
+      dataType: "json",
+      data: {
+        authenticity_token: $("meta[name='csrf-token']").attr("content"),
+        text: searchValue
+      },
+      success: function(data){
+        console.log("yes")
+      }
+    })
+
     let newProduceList = this.state.produce.filter((item) => { return item.name.toLowerCase().includes(searchValue) })
     this.props.filterProduce(newProduceList)
+    $("#search").trigger("focus")
   }
 
   render(){
@@ -17,7 +32,12 @@ class Search extends Component {
       <div className="grid-x">
         <div className="input-group search-group">
           <div className="input-group-field">
-            <input id="search" type="search" placeholder="Search" onChange={this.filterProduce.bind(this)}/>
+            <input id="search" type="search" placeholder="Search"/>
+          </div>
+          <div className="input-group-button search-button-container">
+            <button className="small button search-button" type="button" onClick={this.filterProduce.bind(this)}>
+              <i className="material-icons">search</i>
+            </button>
           </div>
         </div>
       </div>

@@ -1,0 +1,43 @@
+.produce-record-banner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.produce-record-separator {
+  width: 100%;
+  margin: 0em 0em 1.25em 0em;
+}
+
+.produce-record-content {
+  padding-left: 20px;
+  max-height: 450px;
+  overflow: auto;
+  border: 1px solid #eee;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #aaa;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #000;
+  }
+}
+
+.produce-record-menu {
+  .tabs-title:not(.is-active) a:hover {
+    background: #eeeeee;
+    color: #1779ba;
+  }
+
+  .tabs-title.is-active {
+    a:focus, a:hover {
+      background: #1779ba;
+      color: #fefefe;
+    }
+  }
+}

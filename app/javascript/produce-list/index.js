@@ -1,10 +1,10 @@
 import React from "react"
 import { main as ProduceListPage } from "./components/page"
 
-document.addEventListener("turbolinks:before-cache", function(){
+$(document).on("turbolinks:before-cache", () => {
   ProduceListPage.uninitialize()
 })
 
-document.addEventListener("turbolinks:load", function(){
+$(document).on("turbolinks:load", () => {
   ProduceListPage.initialize()
 })

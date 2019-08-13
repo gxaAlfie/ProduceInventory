@@ -1,5 +1,5 @@
 class Produce::Paginator
-  def initialize
+  def initialize(query={})
     @produce = Produce.all
   end
 

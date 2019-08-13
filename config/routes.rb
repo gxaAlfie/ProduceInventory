@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "produce#index"
   resources :produce
+  scope module: "produce" do
+    post "search", to: "searches#show"
+  end
 end
